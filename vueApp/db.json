@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "記事A",
+      "author": "suzuki"
+    },
+    {
+      "id": 2,
+      "title": "記事B",
+      "author": "suzuki"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "reservation": [
+    {
+      "params": {
+        "name": "トマト　太郎",
+        "sex": "1",
+        "meal": [
+          "morning"
+        ],
+        "room": "2",
+        "remarks": ""
+      },
+      "id": 1
+    }
+  ]
+}

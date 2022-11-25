@@ -1,10 +1,13 @@
 <template>
-  <button @click="click"><slot /></button>
+  <button @click="click" :disabled="activateSubmit"><slot /></button>
 </template>
 
 <script>
 export default {
   name: "MyBtn",
+  props: {
+    activateSubmit: { type: Boolean }
+  },
   methods: {
     click() {
       this.$emit("click");

@@ -1,35 +1,79 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "記事A",
-      "author": "suzuki"
-    },
-    {
-      "id": 2,
-      "title": "記事B",
-      "author": "suzuki"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
   "reservation": [
     {
-      "params": {
-        "name": "トマト　太郎",
-        "sex": "1",
-        "meal": [
-          "morning"
-        ],
-        "room": "2",
-        "remarks": ""
-      },
+      "name": "トマト　太郎",
+      "sex": "1",
+      "meal": [
+        "morning"
+      ],
+      "room": "3",
+      "remarks": "ppp",
       "id": 1
+    },
+    {
+      "name": "トマト　太郎",
+      "sex": "2",
+      "meal": [
+        "morning",
+        "dinner"
+      ],
+      "room": "2",
+      "remarks": "",
+      "id": 2
+    },
+    {
+      "name": "mie",
+      "sex": "3",
+      "meal": [
+        "morning"
+      ],
+      "room": "2",
+      "remarks": "eww",
+      "id": 3
+    },
+    {
+      "name": "キャベツ　五郎",
+      "sex": "1",
+      "meal": [
+        "dinner"
+      ],
+      "room": "4",
+      "remarks": "キャベツは嫌いです。",
+      "id": 4
+    },
+    {
+      "name": "トマト　太郎",
+      "sex": "1",
+      "meal": [],
+      "room": "1",
+      "remarks": "",
+      "id": 5
+    },
+    {
+      "name": "mie",
+      "sex": "2",
+      "meal": [],
+      "room": "1",
+      "remarks": "",
+      "id": 6
+    },
+    {
+      "name": "トマト　太郎",
+      "sex": "3",
+      "meal": [
+        "dinner"
+      ],
+      "room": "3",
+      "remarks": "",
+      "id": 7
+    },
+    {
+      "name": "mie",
+      "sex": "3",
+      "meal": [],
+      "room": "2",
+      "remarks": "",
+      "id": 8
     }
   ]
 }

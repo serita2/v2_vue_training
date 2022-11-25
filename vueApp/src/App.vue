@@ -1,45 +1,70 @@
 <template>
   <div id="wrap">
-    <form action="">
-      <MyLabel>名前</MyLabel>
+    <form class="form-group" action="">
+      <MyLabel>名前 <small style="color: red;">必須</small></MyLabel>
       <MyInput
         v-model="sampleForm.text"
         placeholder="山本 太郎"
         name="sample-input"
         type="text"
       ></MyInput>
-      <MyLabel>性別</MyLabel>
+      <MyLabel>性別 <small style="color: red;">必須</small></MyLabel>
       <MyRadio
         v-model="sampleForm.radio"
         name="sample-radio"
         :sex="sex"
         :style="str"
       ></MyRadio>
-      <MyLabel>食事</MyLabel>
+      <MyLabel>食事 <small style="color: #c0c0c0;">任意</small></MyLabel>
       <MyCheckbox
         v-model="sampleForm.checkbox"
         name="sample-checkbox"
         :meal="meal"
         :style="str"
       ></MyCheckbox>
-      <MyLabel>部屋タイプ</MyLabel>
+      <MyLabel>部屋タイプ <small style="color: red;">必須</small></MyLabel>
       <MySelect
         v-model="sampleForm.select"
         name="sample-select"
         :roomType="roomType"
         :style="str"
       ></MySelect>
-      <MyLabel>備考</MyLabel>
+      <MyLabel>備考 <small style="color: #c0c0c0;">任意</small></MyLabel>
       <MyTextarea
         v-model="sampleForm.textarea"
         placeholder="ご要望がございましたら入力してください。"
         name="sample-textarea"
         :rows="5"
         :cols="35"
-      ></MyTextarea>
-      <MyBtn @click="sendForm">送信</MyBtn>
+      ></MyTextarea><br>
+      <p class="button"><MyBtn @click="sendForm" :activateSubmit="activateSubmit">送信</MyBtn></p>
+      <p class="msg">{{ msg }}</p>
     </form>
-    <p>{{ list.radio }}</p>
+    <h2>○予約リスト</h2>
+    <table class="table" border="1">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>名前</th>
+          <th>性別</th>
+          <th>部屋タイプ</th>
+          <th>食事</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in list" :key="item.id">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.sex }}</td>
+          <td>{{ item.room }}</td>
+          <td>
+            <div v-for="meal in item.meal" :key="meal">{{ meal }}</div>
+          </td>
+          <td>{{ item.remarks }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -67,6 +92,7 @@ export default {
   data() {
     return {
       str: "border: none;",
+      activateSubmit: true,
       sampleForm: {
         text: "",
         radio: "",
@@ -89,6 +115,10 @@ export default {
         }
       ],
       roomType: [   
+        {
+          label: "選択してください",
+          value: ""
+        },
         {
           label: "スタンダート",
           value: "1"
@@ -116,36 +146,71 @@ export default {
           value: "dinner"
         }
       ],
-      list: {}
+      list: []
     };
   },
   methods: {
     sendForm() {
-      axios
+      if(this.sampleForm.text != "" && this.sampleForm.radio != "" && this.sampleForm.select != "") {
+        axios
         .post('http://localhost:3000/reservation', {
-          params: {
             name: this.sampleForm.text,
             sex: this.sampleForm.radio,
             meal: this.sampleForm.checkbox,
             room: this.sampleForm.select,
             remarks: this.sampleForm.textarea
-        }
-      })
+        })
+      }
+    }
+  },
+  computed: {
+    msg() {
+      if(this.sampleForm.text != "" && this.sampleForm.radio != "" && this.sampleForm.select != "") {
+        this.activateSubmit = false;
+      }else{
+        this.activateSubmit = true;
+        return "⚠必須項目を入力してください"
+      }
     }
   },
   mounted(){
     axios
       .get('http://localhost:3000/reservation')
       .then(function(response){
-            this.list = response.data.sampleForm
-            console.log(response.data);
+            response.data.forEach(element => {
+                        this.list.push({
+                            id: element.id,
+                            name: element.name,
+                            sex: element.sex,
+                            meal: element.meal,
+                            room: element.room,
+                            remarks: element.remarks
+                        });
+            });
+            console.log(this.list);
         }.bind(this))
         .catch(function(error){
             console.log(error)
         })
   },
-  
-};
+}
 </script>
 
-<style></style>
+<style lang="scss">
+  #wrap {
+    width: 500px;
+    margin: 0 auto;
+  }
+  .form-group{
+    width:250px;
+    margin: 0 auto;
+  }
+  .button{
+    text-align: center;
+  }
+  .msg{
+    text-align: center;
+    color: red;
+    font-size: small;
+  }
+</style>

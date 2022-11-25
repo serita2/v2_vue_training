@@ -12,7 +12,6 @@ export default {
 label {
   display: block;
   font-weight: bold;
-  border-right: 5px solid #ccc;
   padding-right: 10px;
 }
 </style>

@@ -6,6 +6,7 @@
     :value="value"
     :placeholder="placeholder"
     @input="updateValue"
+    class="nameInput"
   /><br>
   <span class="error">{{ errors[0] }}</span>
   </validation-provider>
@@ -45,7 +46,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .error{
   color:red;
   font-size: small;

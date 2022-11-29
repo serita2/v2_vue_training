@@ -1,35 +1,14 @@
 {
   "reservation": [
     {
-      "name": "トマト　太郎",
+      "name": "山本　太郎",
       "sex": "1",
       "meal": [
         "morning"
       ],
-      "room": "3",
-      "remarks": "ppp",
+      "room": "2",
+      "remarks": "トマト嫌いです。",
       "id": 1
-    },
-    {
-      "name": "トマト　太郎",
-      "sex": "2",
-      "meal": [
-        "morning",
-        "dinner"
-      ],
-      "room": "2",
-      "remarks": "",
-      "id": 2
-    },
-    {
-      "name": "mie",
-      "sex": "3",
-      "meal": [
-        "morning"
-      ],
-      "room": "2",
-      "remarks": "eww",
-      "id": 3
     },
     {
       "name": "キャベツ　五郎",
@@ -38,42 +17,19 @@
         "dinner"
       ],
       "room": "4",
-      "remarks": "キャベツは嫌いです。",
-      "id": 4
+      "remarks": "キャベツ嫌いです。",
+      "id": 2
     },
     {
-      "name": "トマト　太郎",
+      "name": "レタス　たかし",
       "sex": "1",
-      "meal": [],
-      "room": "1",
-      "remarks": "",
-      "id": 5
-    },
-    {
-      "name": "mie",
-      "sex": "2",
-      "meal": [],
-      "room": "1",
-      "remarks": "",
-      "id": 6
-    },
-    {
-      "name": "トマト　太郎",
-      "sex": "3",
       "meal": [
+        "morning",
         "dinner"
       ],
       "room": "3",
-      "remarks": "",
-      "id": 7
-    },
-    {
-      "name": "mie",
-      "sex": "3",
-      "meal": [],
-      "room": "2",
-      "remarks": "",
-      "id": 8
+      "remarks": "レタスは嫌いです。",
+      "id": 3
     }
   ]
 }

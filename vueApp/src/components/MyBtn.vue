@@ -1,5 +1,5 @@
 <template>
-  <button @click="click" :disabled="activateSubmit"><slot /></button>
+  <button @click="click" :disabled="activateSubmit" class="submit-btn"><slot /></button>
 </template>
 
 <script>
